@@ -1,3 +1,4 @@
+import code
 from crypt import methods
 from flask import Flask, request, jsonify, abort
 from flask_cors import CORS
@@ -24,7 +25,15 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
     return response
 
-# ROUTES
+'''
+Application Entry point
+Route '/'
+'''
+@app.route('/')
+def index():
+    return '<h1>Hello Flask!!</h1>'
+
+
 """
 Route GET '/drinks'
 :param None
@@ -34,16 +43,19 @@ Queries all the drinks from db
 """
 
 
-@app.route('/drinks')
-def get_drinks():
-    drinks = Drink.query.all()
+@app.route('/drinks', methods=['GET'])
+def get_all_drinks():
+    try:
+        drinks = Drink.query.all()
 
-    formatted_drinks = [drink.short() for drink in drinks]
+        formatted_drinks = [drink.short() for drink in drinks]
 
-    return jsonify({
-        'success': True,
-        'drinks': formatted_drinks
-    })
+        return jsonify({
+            'success': True,
+            'drinks': formatted_drinks
+        })
+    except:
+        abort(404)
 
 
 """
@@ -55,21 +67,28 @@ Queries all drinks from db
 :returns 'long' formatted drinks (JSON)
 """
 
-
 @app.route('/drinks-detail', methods=['GET'])
 @requires_auth('get:drinks-detail')
 def get_drinks_detail(payload):
-    drinks = Drink.query.all()
+        drinks = Drink.query.all()
 
-    # if not drinks:
-    #     abort(404)
+        if not drinks:
+            return jsonify({
+                'success': False,
+                'code':404,
+                'message': 'Resource not Found!!'
+            })
+            print('#########HEREEEEEE##########----NOTHING FOUND!!')
+        else:
+            formatted_drinks = [drink.long() for drink in drinks]
 
-    formatted_drinks = [drink.long() for drink in drinks]
-
-    return jsonify({
-        'success': True,
-        'drinks': formatted_drinks
-    })
+            return jsonify({
+                'success': True,
+                'code':200,
+                'drinks': formatted_drinks
+            })
+            print('#########HEREEEEEE##########----SUCCESSFULL')
+       
 
 
 """
@@ -82,14 +101,13 @@ Inserts a drink to the db using the information provided
 :returns a list with 'long' formatted inserted drink  (JSON)
 """
 
-
 @app.route('/drinks', methods=['POST'])
 @requires_auth('post:drinks')
 def create_drink(payload):
-    body = request.get_json()
 
     try:
 
+        body = request.get_json()
         title = body['title']
         recipe = body['recipe']
 
@@ -104,7 +122,6 @@ def create_drink(payload):
     except Exception:
         abort(422)
 
-
 """
 Route PATCH '/drinks/1'
 :param drink_id (int)
@@ -118,31 +135,39 @@ Updates drink information and commit the changes to the db
 :returns a list with 'long' formatted updated drink  (JSON)
 """
 
-
 @app.route('/drinks/<int:drink_id>', methods=['PATCH'])
 @requires_auth('patch:drinks')
 def update_drink(drink_id, payload):
-    body = request.get_json()
+    if not requires_auth('patch:drinks'):
 
-    drink = Drink.query.filter(Drink.id == drink_id).one_or_none()
+        body = request.get_json()
 
-    if not drink:
-        abort(404)
+        drink = Drink.query.filter(Drink.id == drink_id).one_or_none()
 
-    try:
+        if not drink:
+            abort(404)
 
-        drink.title = body['title']
-        drink.recipe = body['recipe']
+        try:
 
-        drink.update()
+            drink.title = body['title']
+            drink.recipe = body['recipe']
 
+            drink.update()
+
+            return jsonify({
+                'success': True,
+                'drinks': [drink.long()]
+            })
+
+        except Exception:
+            abort(422)
+    else:
         return jsonify({
-            'success': True,
-            'drinks': [drink.long()]
+            'success': False,
+            'code':403,
+            'message':'Not authorized!!'
         })
-
-    except Exception:
-        abort(422)
+        
 
 
 """
@@ -174,14 +199,23 @@ def delete_drink(drink_id, payload):
         })
     except Exception:
         abort(422)
+        
+"""
+Error Handling Functions
+"""
 
+@app.errorhandler(404)
+def resource_not_found(error):
+    return jsonify({
+        'status':False,
+        'code':404,
+        'message':'Resource not found!!'
+    });
 
 """
-Error Handling
+Error Handler (422) Unprocessable
+Error Handler for Unprocessable request
 """
-
-
-# Error Handler (422) Unprocessable
 @app.errorhandler(422)
 def unprocessable(error):
     return jsonify({
@@ -200,7 +234,10 @@ def not_found(error):
         "message": "resource not found"
     }), 404
 
-# Error Handler (401) Unauthorized
+"""
+Error Handler (401) Unauthorized
+Error Handler for Unprocessable request
+"""
 @app.errorhandler(AuthError)
 def not_authenticated(auth_error):
     return jsonify({
