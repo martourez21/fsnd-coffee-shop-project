@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DrinkGraphicComponent } from './drink-graphic.component';
+import { DrinkFormComponent } from './drink-form.component';
 
-describe('DrinkGraphicComponent', () => {
-  let component: DrinkGraphicComponent;
-  let fixture: ComponentFixture<DrinkGraphicComponent>;
+describe('DrinkFormComponent', () => {
+  let component: DrinkFormComponent;
+  let fixture: ComponentFixture<DrinkFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DrinkGraphicComponent ],
+      declarations: [ DrinkFormComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DrinkGraphicComponent);
+    fixture = TestBed.createComponent(DrinkFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
