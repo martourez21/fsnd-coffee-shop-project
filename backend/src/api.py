@@ -44,7 +44,7 @@ Queries all the drinks from db
 
 
 @app.route('/drinks', methods=['GET'])
-def get_all_drinks():
+def get_drinks():
     try:
         drinks = Drink.query.all()
 
@@ -106,10 +106,9 @@ Inserts a drink to the db using the information provided
 def create_drink(payload):
 
     try:
-
         body = request.get_json()
-        title = body['title']
-        recipe = body['recipe']
+        title = body.get('title', None)
+        recipe = body.get('recipe', None)
 
         drink = Drink(title=title, recipe=recipe)
         drink.insert()
@@ -149,8 +148,8 @@ def update_drink(drink_id, payload):
 
         try:
 
-            drink.title = body['title']
-            drink.recipe = body['recipe']
+            drink.title = body.get('title', None)
+            drink.recipe = body.get('recipe', None)
 
             drink.update()
 
@@ -244,4 +243,4 @@ def not_authenticated(auth_error):
         "success": False,
         "error": auth_error.status_code,
         "message": auth_error.error
-    }), 401
+    }), auth_error.status_code

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { AuthService } from './auth.service';
-import { environment } from 'environments/environment';
+import { environment } from 'src/environments/environment';
 
 export interface Drink {
   id: number;

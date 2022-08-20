@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a5c8c602-738d-49a2-8c13-214d758ae32e",
+		"_postman_id": "3880e478-a432-428e-b658-5bdb5987ebd5",
 		"name": "udacity-fsnd-udaspicelatte",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "21510578"
@@ -213,8 +213,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -243,8 +243,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -283,8 +283,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -314,8 +314,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -344,7 +344,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImJEQ01EX1FncllPTXhBdmtTcWROciJ9.eyJpc3MiOiJodHRwczovL3RvbWFyaWtlbi5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWU5YmEyMWU2M2Y4MDAwYzhjMjE3MjAwIiwiYXVkIjoiY29mZmVlIiwiaWF0IjoxNTg3NTkxNDM1LCJleHAiOjE1ODc2Nzc4MzUsImF6cCI6InlwVmVZa0ExVFJ6Y2hQTnBFNmoyTHZoNzZDT3dPSElUIiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6ZHJpbmtzLWRldGFpbCJdfQ.tXd8nMgDFsL1YyX8zV-M8u2sxKP8F24A_2a7h2ayoJsSsOVhnNUYn2Jtq77WSPYNslKuQ6U0hSMhFw8n2dFay5j_5QxsfBbLfJ6HfGNQocGA3lYw11o2J8eG3nZjXhluOtOWeitjCSk7sfver-rbckF8CkuxV5BumYY_vnPpltnjy6GKyXuxsCs_eq3m7vJmL6yBRkgGsoyJcRANjeLwUxCxYOLoJtYMQZ8foeCsQS-pNbYmQuo5gBTHUoCZMty2xNsbHQ1qm0IMZq3oy2xkWS-jKYFhrWu6v7YfVFHzdeQ3KVjZhZD2AMKLsTyX7vF8-sB_NkfmWsD1n0EUNlY-PA",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZuS01jRFRzcDVFQjdXa05DbXQyVyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZXNob3AwMy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjMwMGZkMGQ5ZGRhYzUwY2NjOTgwZWE4IiwiYXVkIjoiY29mZmVlc2hvcCIsImlhdCI6MTY2MTAwOTQ3MSwiZXhwIjoxNjYxMDE2NjcxLCJhenAiOiJkMUh4cFB2UUN3WGd6ajhzampLdmFJTXpSUVVPWUs0ZCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmRyaW5rcyIsImdldDpkcmlua3MtZGV0YWlsIl19.X6lCy6ujwkpK4a5SGpvaeRiBGExXnKSAuPchoetewxll5yF_kBMw9F74bQyZ7KJ2ZD9yNEG62KdRZsAx_Mfqd8vqiOobC69WZxEqU0H75YU4IrtQY4o_2fezlALGX9jgombC7nClW54KtQTyqxWEI0QfV_4TcU3pqC5ghlqQ7xtnTEbsZqv_h23g19h24OEiD4udDcOkROlwIorKy5gO5Dw_gjKQ3nwjuQUWJqKZPjP7IwaNvv6d1NRRH3gdcextCCD-F043L54edsUkAMB-ljtYFVLcPCnVH0kxfWK_fItbwBSjXPTbXZqOx89VdojWGqjW01oJSsG7I_WxQIVFZQ",
 						"type": "string"
 					}
 				]
@@ -415,8 +415,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
 									"});",
 									""
 								],
@@ -446,8 +446,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -487,8 +487,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
 									"});",
 									"",
 									""
@@ -531,8 +531,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 401\", function () {",
-									"    pm.response.to.have.status(401);",
+									"pm.test(\"Status code is 500\", function () {",
+									"    pm.response.to.have.status(500);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -561,7 +561,7 @@
 				"bearer": [
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJFZjhJVllhZnp2YUNYNjJWTExvUCJ9.eyJpc3MiOiJodHRwczovL2Rldi1mZHZ2cm5jZS51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjJmYTZlZmFlMDcyNzc5ODlmMzFiM2NlIiwiYXVkIjoiY29mZmVlLXNob3AiLCJpYXQiOjE2NjA1ODQ2MTUsImV4cCI6MTY2MDU5MTgxNSwiYXpwIjoibExFbXJKNFFJMjd5Q1JRWGFRelB0d1ZYemdwRlNwZ2EiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpkcmlua3MiLCJnZXQ6ZHJpbmtzIiwiZ2V0OmRyaW5rcy1kZXRhaWwiLCJwYXRjaDpkcmlua3MiLCJwb3N0OmRyaW5rcyJdfQ.I1n6uq_wIj5Bn1ryv2ECXbFuR3pCva8VP6NOepjN9GkSJWavhfrlTHDREBAo_PTNQXtipdeBg4hmyOkRPHNeVXHv0uYzwjl_j80FndFAGFNCGoenFUIXUPaAGFdWaakxM9zAL54XYEyKhCtuTzZq7GyUEEJ0mVEMxS8gjLow4iDhjYFiMMlqeNv7ojpQUh17UUIn3JJY7gS6up7-vrWp3fWG4gy0W0s1AnaBaCaVAT1X-E7nO39VV6bzBcHVDg8lK99CaUzpbyFb_oK89zBKUZcg4v86MQHqqfpCxyKTrWh-wGmWgDM_RPAwlLedAO91LhPcWbk6teqPP3dLWpAyng",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjZuS01jRFRzcDVFQjdXa05DbXQyVyJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZXNob3AwMy51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjMwMGZkN2M1NGEwYmNhOWMxODgxNWRiIiwiYXVkIjoiY29mZmVlc2hvcCIsImlhdCI6MTY2MTAwOTY1MSwiZXhwIjoxNjYxMDE2ODUxLCJhenAiOiJkMUh4cFB2UUN3WGd6ajhzampLdmFJTXpSUVVPWUs0ZCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmRyaW5rcyIsImdldDpkcmlua3MiLCJnZXQ6ZHJpbmtzLWRldGFpbCIsInBhdGNoOmRyaW5rcyIsInBvc3Q6ZHJpbmtzIl19.Ap4JotcjtjRz0_ZbdQM1DqW-zFLBv42CoNs-Ho9iNWDQybBVZ8z6MwS3TuBJxjhInAeMpsiNYhzKnXdm2CbQPF0B0KsOY3mbEykhd91zBD_kQVfH1k6Xd3eL5j25c69jungcflMkgClAdtHahnc8UKXXE-OEw3TAdxNjpz6M8GH_zLGLwmUWCFfvhh-toERXUzFM71BquB28MHiwlV2LcQB1nyrczbag7iuoWjN5G-vtzqlFpws_j5Cg4rj0-atD0RyjHzQHN5R_secdvWb5fH-FlfXjcgWh9Z6U0rzQVvUtN1uDwik5WSK4SQUj2o4NV7iQG98AyclIhfxDqzlxzg",
 						"type": "string"
 					}
 				]
